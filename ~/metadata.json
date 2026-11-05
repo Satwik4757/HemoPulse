@@ -1,6 +1,0 @@
-{
-  "name": "HemoPulse AI — Hospital Blood Bank & Distribution System",
-  "description": "AI-powered clinical blood bank management system that predicts donor availability and optimizes multi-ward and regional inventory distribution.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
