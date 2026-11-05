@@ -1,0 +1,21 @@
+# Render Blueprint Specification (render.yaml)
+# HemoPulse Clinical — AI-Powered Hospital Blood Bank & Distribution System
+# Attribution: SATWIK GOSAVI in Collaboration with KLE C.B.KORE POLYTECHNIC
+
+services:
+  - type: web
+    name: hemopulse-clinical-blood-bank
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npx tsx server.ts
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: GEMINI_API_KEY
+        sync: false

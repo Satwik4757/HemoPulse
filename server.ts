@@ -10,6 +10,15 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.json({ limit: '2mb' }));
 
+// Health check endpoint for Render / cloud load balancers
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'hemopulse-clinical-blood-bank',
+    timestamp: new Date().toISOString(),
+  });
+});
+
 function getGeminiClient(): GoogleGenAI | null {
   const key = process.env.GEMINI_API_KEY;
   if (!key || key === 'MY_GEMINI_API_KEY' || key.trim() === '') {
